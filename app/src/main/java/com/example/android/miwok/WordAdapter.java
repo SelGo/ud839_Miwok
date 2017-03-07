@@ -36,7 +36,13 @@ public class WordAdapter extends ArrayAdapter<Word>{
         defaultTextView.setText(currentWord.getmDefaultTranslation());
 
         ImageView imageView = (ImageView) listItemView.findViewById(R.id.image);
-        imageView.setImageResource(currentWord.getmImageResourceId());
+
+        if(currentWord.hasImage()) {
+            imageView.setImageResource(currentWord.getmImageResourceId());
+            imageView.setVisibility(View.VISIBLE);
+        } else {
+            imageView.setVisibility(View.GONE);
+        }
 
         return listItemView;
     }
